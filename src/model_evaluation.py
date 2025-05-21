@@ -30,9 +30,9 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-#def load_params(params_path: str) -> dict:
-#    """Load parameters from a YAML file."""
-"""    try:
+def load_params(params_path: str) -> dict:
+    """Load parameters from a YAML file."""
+    try:
         with open(params_path, 'r') as file:
             params = yaml.safe_load(file)
         logger.debug('Parameters retrieved from %s', params_path)
@@ -46,7 +46,7 @@ logger.addHandler(file_handler)
     except Exception as e:
         logger.error('Unexpected error: %s', e)
         raise
-"""
+
 def load_model(file_path: str):
     """Load the trained model from a file."""
     try:
@@ -112,7 +112,7 @@ def save_metrics(metrics: dict, file_path: str) -> None:
 
 def main():
     try:
-#        params = load_params(params_path='params.yaml')
+        params = load_params(params_path='params.yaml')
         clf = load_model('./models/model.pkl')
         test_data = load_data('./data/processed/test_tfidf.csv')
         
